@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('bonuses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('boarding_house_id')->constrained();
+            $table->string('name');
+            $table->text('description');
             $table->timestamps();
         });
     }

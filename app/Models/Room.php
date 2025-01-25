@@ -6,5 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    //
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function boardingHouse(){
+        return $this->belongsTo(BoardingHouse::class);
+    }
+
+    public function images(){
+        return $this->hasMany(RoomImage::class);
+    }
+
+    public function transactions(){
+        return $this->hasMany(Transaction::class);
+    }
 }
